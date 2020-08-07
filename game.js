@@ -3,7 +3,7 @@ var blocks = ["green","red","yellow","blue"];
 var usersequence =[];
 var start = true;
 var i=0;
-$(document).keypress(function(){
+$(document).click(function(){
   $(".instruction").css("display","none");
   if(start){
     start=false;
