@@ -18,8 +18,10 @@ function generator(){
 };
 
 $(".btn").click(function(e){
+  if(!start){
     usersequence.push(e.target.classList[1]);
     checkanswer(usersequence.length-1);
+  }
   });
 
 function checkanswer(i){
@@ -30,8 +32,8 @@ function checkanswer(i){
     }
   }
   else{
-    $("h1").text("Game Over, Press Any Key to Restart");
-    gameover();
+    $("h1").text("Game Over, Click on screen to Restart");
+    setTimeout(function(){ gameover(); }, 1000);      
   }
 }
 
