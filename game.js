@@ -4,6 +4,7 @@ var usersequence =[];
 var start = true;
 var i=0;
 $(document).keypress(function(){
+  $(".instruction").css("display","none");
   if(start){
     start=false;
     generator();
@@ -13,7 +14,7 @@ function generator(){
   $("h1").text("Level " + (sequence.length+1));
   var randomNumber = Math.floor(Math.random() * 4);
   sequence.push(blocks[randomNumber]);
-  $("." + blocks[randomNumber]).fadeIn(100).fadeOut(100).fadeIn(100);
+  setTimeout(function(){ $("." + blocks[randomNumber]).fadeIn(100).fadeOut(100).fadeIn(100); }, 1000);
 };
 
 $(".btn").click(function(e){
