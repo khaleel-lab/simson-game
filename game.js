@@ -18,7 +18,7 @@ function generator(){
 };
 
 $(".btn").click(function(e){
-  $("." + e.target.classList[1]).fadeIn(100).fadeOut(100).fadeIn(100);
+  playsound("sounds/" + e.target.classList[1] + ".mp3");
   if(!start){
     usersequence.push(e.target.classList[1]);
     checkanswer(usersequence.length-1);
@@ -33,8 +33,9 @@ function checkanswer(i){
     }
   }
   else{
+    playsound("sounds/wrong.mp3")
     $("h1").text("Game Over, Click on screen to Restart");
-    setTimeout(function(){ gameover(); }, 1000);
+    setTimeout(function(){ gameover(); }, 10);
   }
 }
 
@@ -42,4 +43,8 @@ function gameover(){
   usersequence =[];
   sequence =[];
   start = true;
+}
+function playsound(url){
+  var sound = new Audio(url);
+  sound.play();
 }
